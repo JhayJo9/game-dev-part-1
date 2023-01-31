@@ -1,0 +1,40 @@
+
+
+PYGAME
+
+theme - 
+
+bars moving continues moving and have to not touch (if it touches it will stop the game )
+
+the game have score border and control you can move left and right
+# 
+
+from shutil import move
+from turtle import screensize
+import pygame, sys, random
+
+def moving_g():
+    Screen.blit(ground, (move_g, 30))
+    Screen.blit(ground, (move_g + -200, 30))
+
+pygame.init()
+
+Screen = pygame.display.set_mode((300, 400))
+ground = pygame.image.load('image_game/ground_move.png').convert_alpha()
+ground = pygame.transform.scale(ground, (700, 500))
+move_g = 100
+clock = pygame.time.Clock()
+while True:
+    for event in pygame.event.get():
+        if event == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    
+       
+    move_g -= 4.5
+    moving_g()
+    if move_g <= -400:
+        move_g = 0
+    pygame.display.update()
+    clock.tick(120)
